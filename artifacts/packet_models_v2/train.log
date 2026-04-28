@@ -1,0 +1,76 @@
+
+======================================================================
+=== ATTACK: sqli ===
+======================================================================
+loaded n=30919  pos=11382  neg=19537  ratio=0.368
+train=24735  test=6184
+  [tfidf_char35__logreg    ] P=0.9947  R=0.9864  F1=0.9905  AUC=0.9984  fit=  1.14s
+  [tfidf_char35__rf        ] P=0.9852  R=0.9960  F1=0.9906  AUC=0.9997  fit=  2.60s
+  [tfidf_char35__gbc       ] P=0.9996  R=0.9877  F1=0.9936  AUC=0.9965  fit= 44.06s
+  [tfidf_char35__linsvc    ] P=0.9978  R=0.9917  F1=0.9947  AUC=0.9992  fit=  0.79s
+  [tfidf_char35__mnb       ] P=0.8664  R=0.9886  F1=0.9235  AUC=0.9963  fit=  0.80s
+  [sigs__logreg            ] P=0.9345  R=0.6832  F1=0.7893  AUC=0.8705  fit=  0.28s
+  [sigs__rf                ] P=0.9457  R=0.6880  F1=0.7965  AUC=0.8809  fit=  0.66s
+  [sigs__gbc               ] P=0.9472  R=0.6854  F1=0.7953  AUC=0.8796  fit=  0.47s
+  [sigs__linsvc            ] P=0.9345  R=0.6828  F1=0.7890  AUC=0.8705  fit=  0.32s
+  [sigs__mnb               ] P=0.9979  R=0.6235  F1=0.7674  AUC=0.8644  fit=  0.27s
+  [hybrid__logreg          ] P=1.0000  R=0.9868  F1=0.9934  AUC=0.9987  fit=  1.51s
+  [hybrid__rf              ] P=0.9844  R=0.9956  F1=0.9900  AUC=0.9997  fit=  2.63s
+  [hybrid__gbc             ] P=1.0000  R=0.9868  F1=0.9934  AUC=0.9965  fit= 50.63s
+  [hybrid__linsvc          ] P=0.9996  R=0.9917  F1=0.9956  AUC=0.9991  fit=  1.09s
+  [hybrid__mnb             ] P=0.8727  R=0.9881  F1=0.9268  AUC=0.9965  fit=  1.05s
+
+>>> WINNER sqli: hybrid__linsvc  F1=0.9956  -> /mnt/c/Users/khmel/Desktop/RL_FIREWALL_IPTABLES-main/artifacts/packet_models_v2/sqli.pkl
+
+======================================================================
+=== ATTACK: xss ===
+======================================================================
+loaded n=13686  pos=7373  neg=6313  ratio=0.539
+train=10948  test=2738
+  [tfidf_char35__logreg    ] P=1.0000  R=0.9932  F1=0.9966  AUC=1.0000  fit=  0.79s
+  [tfidf_char35__rf        ] P=1.0000  R=0.9953  F1=0.9976  AUC=1.0000  fit=  1.18s
+  [tfidf_char35__gbc       ] P=1.0000  R=0.9939  F1=0.9969  AUC=0.9999  fit= 42.23s
+  [tfidf_char35__linsvc    ] P=1.0000  R=0.9973  F1=0.9986  AUC=1.0000  fit=  0.65s
+  [tfidf_char35__mnb       ] P=0.9716  R=0.9966  F1=0.9839  AUC=0.9997  fit=  0.66s
+  [sigs__logreg            ] P=1.0000  R=0.9831  F1=0.9915  AUC=0.9945  fit=  0.11s
+  [sigs__rf                ] P=1.0000  R=0.9864  F1=0.9932  AUC=0.9945  fit=  0.47s
+  [sigs__gbc               ] P=1.0000  R=0.9864  F1=0.9932  AUC=0.9935  fit=  0.20s
+  [sigs__linsvc            ] P=1.0000  R=0.9864  F1=0.9932  AUC=0.9945  fit=  0.12s
+  [sigs__mnb               ] P=0.5363  R=0.9858  F1=0.6947  AUC=0.9804  fit=  0.11s
+  [hybrid__logreg          ] P=1.0000  R=0.9885  F1=0.9942  AUC=1.0000  fit=  0.95s
+  [hybrid__rf              ] P=1.0000  R=0.9953  F1=0.9976  AUC=1.0000  fit=  1.26s
+  [hybrid__gbc             ] P=1.0000  R=0.9939  F1=0.9969  AUC=0.9999  fit= 46.46s
+  [hybrid__linsvc          ] P=1.0000  R=0.9973  F1=0.9986  AUC=1.0000  fit=  0.85s
+  [hybrid__mnb             ] P=0.9709  R=0.9959  F1=0.9833  AUC=0.9997  fit=  0.85s
+
+>>> WINNER xss: tfidf_char35__linsvc  F1=0.9986  -> /mnt/c/Users/khmel/Desktop/RL_FIREWALL_IPTABLES-main/artifacts/packet_models_v2/xss.pkl
+
+======================================================================
+=== ATTACK: cmd_injection ===
+======================================================================
+loaded n=2105  pos=514  neg=1591  ratio=0.244
+train=1684  test=421
+  [tfidf_char35__logreg    ] P=1.0000  R=0.9806  F1=0.9902  AUC=0.9948  fit=  0.03s
+  [tfidf_char35__rf        ] P=0.5484  R=0.9903  F1=0.7059  AUC=0.9933  fit=  0.47s
+  [tfidf_char35__gbc       ] P=0.9884  R=0.8252  F1=0.8995  AUC=0.9926  fit=  2.00s
+  [tfidf_char35__linsvc    ] P=1.0000  R=0.9903  F1=0.9951  AUC=0.9951  fit=  0.03s
+  [tfidf_char35__mnb       ] P=1.0000  R=0.9903  F1=0.9951  AUC=0.9953  fit=  0.03s
+  [sigs__logreg            ] P=1.0000  R=0.6796  F1=0.8092  AUC=0.8447  fit=  0.01s
+  [sigs__rf                ] P=1.0000  R=0.6893  F1=0.8161  AUC=0.8447  fit=  0.37s
+  [sigs__gbc               ] P=1.0000  R=0.6796  F1=0.8092  AUC=0.8398  fit=  0.04s
+  [sigs__linsvc            ] P=1.0000  R=0.6796  F1=0.8092  AUC=0.8447  fit=  0.01s
+  [sigs__mnb               ] P=1.0000  R=0.3689  F1=0.5390  AUC=0.7379  fit=  0.01s
+  [hybrid__logreg          ] P=1.0000  R=0.9806  F1=0.9902  AUC=0.9949  fit=  0.04s
+  [hybrid__rf              ] P=0.5455  R=0.9903  F1=0.7034  AUC=0.9936  fit=  0.44s
+  [hybrid__gbc             ] P=0.9800  R=0.9515  F1=0.9655  AUC=0.9898  fit=  2.96s
+  [hybrid__linsvc          ] P=1.0000  R=0.9903  F1=0.9951  AUC=0.9956  fit=  0.04s
+  [hybrid__mnb             ] P=1.0000  R=0.9903  F1=0.9951  AUC=0.9954  fit=  0.03s
+
+>>> WINNER cmd_injection: tfidf_char35__linsvc  F1=0.9951  -> /mnt/c/Users/khmel/Desktop/RL_FIREWALL_IPTABLES-main/artifacts/packet_models_v2/cmd_injection.pkl
+
+=== ALL DONE ===
+Winners:
+  sqli: hybrid__linsvc  F1=0.9956
+  xss: tfidf_char35__linsvc  F1=0.9986
+  cmd_injection: tfidf_char35__linsvc  F1=0.9951
+Results: /mnt/c/Users/khmel/Desktop/RL_FIREWALL_IPTABLES-main/artifacts/packet_models_v2/results.json + results.md

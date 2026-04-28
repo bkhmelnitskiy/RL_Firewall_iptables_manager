@@ -1,4 +1,5 @@
-from http.server import BaseHTTPRequestHandler, HTTPServer
+import socket
+from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 import urllib.parse
 
 HOST           = "0.0.0.0"
@@ -7,6 +8,11 @@ VALID_PASSWORD = "secret123"
 
 
 class LoginHandler(BaseHTTPRequestHandler):
+    # Per-connection read timeout. Without this, attack packets that complete
+    # the TCP handshake but get dropped at NFQUEUE before delivering the
+    # request line keep their handler thread hung. 5s is generous for legit.
+    timeout = 5.0
+
     def do_POST(self):
         if self.path != "/login":
             self.send_response(404)
@@ -33,4 +39,4 @@ class LoginHandler(BaseHTTPRequestHandler):
 
 if __name__ == "__main__":
     print(f"Target server on {HOST}:{PORT}  (password: {VALID_PASSWORD})")
-    HTTPServer((HOST, PORT), LoginHandler).serve_forever()
+    ThreadingHTTPServer((HOST, PORT), LoginHandler).serve_forever()

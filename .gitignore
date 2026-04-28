@@ -1,6 +1,9 @@
 .venv-wsl/
+.venv/
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
 .env
+.claude/
+datasets/*.pcap_ISCX.csv

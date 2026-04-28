@@ -1,0 +1,49 @@
+=== loading models ===
+  sqli            feat -> clf
+  xss             feat -> clf
+  cmd_injection   feat -> clf
+
+======================================================================
+FWAF (third-party, mix attack types)
+======================================================================
+good=100000  bad=48077
+
+FPR per model on FWAF goodqueries:
+  sqli            FPR= 0.297%  (297/100000)
+  xss             FPR= 0.096%  (96/100000)
+  cmd_injection   FPR= 2.473%  (2473/100000)
+  any             FPR= 2.836%  (2836/100000)
+
+Hit-rate per model on FWAF badqueries (mix attack types, no per-type labels):
+  sqli            hit=14.437%  (6941/48077)
+  xss             hit=26.297%  (12643/48077)
+  cmd_injection   hit=51.871%  (24938/48077)
+  any             hit=68.359%  (32865/48077)
+
+======================================================================
+HttpParamsDataset (per-type labels)
+======================================================================
+attack_type
+norm              19304
+sqli              10852
+xss                 532
+path-traversal      290
+cmdi                 89
+
+slice                 n        sqli        xss   cmd_injection        any
+norm              19304      0.026%     0.010%          0.047%     0.083%   (FPR)
+sqli              10852     99.484%     0.000%          7.980%    99.484%   (TPR)
+xss                 532      0.000%    94.549%         43.797%    95.677%   (TPR)
+cmdi                 89      6.742%     3.371%         91.011%    91.011%   (TPR)
+path-traversal      290      0.000%     0.000%          5.517%     5.517%   (TPR)
+
+======================================================================
+CSIC benign (training-distribution sanity)
+======================================================================
+benign sampled = 30000
+  sqli            FPR= 0.000%  (0/30000)
+  xss             FPR= 0.000%  (0/30000)
+  cmd_injection   FPR= 0.000%  (0/30000)
+  any             FPR= 0.000%  (0/30000)
+
+=== DONE ===
